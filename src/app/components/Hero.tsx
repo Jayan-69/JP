@@ -98,7 +98,7 @@ export function Hero() {
                 />
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-800">
                   <img
-                    src="/src/Assets/BU4A0371.jpg"
+                    src="./Assets/BU4A0371.jpg"
                     alt="Jayan Mihisara Perera"
                     className="w-full h-full object-cover"
                   />
