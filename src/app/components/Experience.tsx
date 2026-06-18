@@ -23,10 +23,9 @@ export function Experience() {
   return (
     <section id="experience" className="py-24 bg-slate-900 relative overflow-hidden">
       <motion.div
-        className="absolute top-1/3 left-10 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl"
+        className="absolute top-1/3 left-10 w-80 h-80 bg-teal-500/[0.05] rounded-full blur-[100px]"
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1, 1.2, 1],
         }}
         transition={{
           duration: 10,
@@ -43,8 +42,9 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <span className="inline-block text-xs tracking-widest text-teal-400/80 uppercase mb-3">Career</span>
           <motion.h2
-            className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl mb-4 text-white tracking-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -71,17 +71,17 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-purple-500/50 transition-all group relative overflow-hidden"
-              whileHover={{ y: -8 }}
+              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-8 hover:border-white/15 transition-all group relative overflow-hidden"
+              whileHover={{ y: -6 }}
             >
               <div className="flex items-start gap-4 mb-6 relative z-10">
-                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-teal-500 to-green-500 flex items-center justify-center flex-shrink-0">
-                  <Briefcase className="text-white" size={28} />
+                <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-black/20">
+                  <Briefcase className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-2xl text-white">{exp.role}</h3>
-                  <p className="text-lg text-purple-400 mt-1">{exp.company}</p>
-                  <span className="flex items-center gap-1 text-slate-400 text-sm mt-1">
+                  <h3 className="text-xl md:text-2xl text-white">{exp.role}</h3>
+                  <p className="text-base md:text-lg text-blue-300 mt-1">{exp.company}</p>
+                  <span className="flex items-center gap-1.5 text-slate-400 text-sm mt-1.5">
                     <Calendar size={14} />
                     {exp.period}
                   </span>
@@ -98,8 +98,8 @@ export function Experience() {
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
                     className="flex items-start gap-3"
                   >
-                    <Search className="text-teal-400 mt-1 flex-shrink-0" size={18} />
-                    <p className="text-slate-300 leading-relaxed">{point}</p>
+                    <Search className="text-teal-400 mt-1 flex-shrink-0" size={16} />
+                    <p className="text-slate-300/90 leading-relaxed text-[15px]">{point}</p>
                   </motion.div>
                 ))}
               </div>

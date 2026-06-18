@@ -87,13 +87,11 @@ const educationData = [
 export function Education() {
   return (
     <section id="education" className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Animated background */}
+      {/* Ambient background */}
       <motion.div
-        className="absolute top-1/4 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute top-1/4 right-20 w-96 h-96 bg-blue-500/[0.05] rounded-full blur-[110px]"
         animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -50, 0],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1, 1.2, 1],
         }}
         transition={{
           duration: 10,
@@ -102,11 +100,9 @@ export function Education() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"
+        className="absolute bottom-1/4 left-20 w-80 h-80 bg-violet-500/[0.05] rounded-full blur-[100px]"
         animate={{
-          scale: [1.2, 1, 1.2],
-          y: [0, 50, 0],
-          opacity: [0.3, 0.5, 0.3],
+          scale: [1.15, 1, 1.15],
         }}
         transition={{
           duration: 12,
@@ -123,8 +119,9 @@ export function Education() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          <span className="inline-block text-xs tracking-widest text-purple-400/80 uppercase mb-3">Background</span>
+          <motion.h2
+            className="text-4xl md:text-5xl mb-4 text-white tracking-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -132,7 +129,7 @@ export function Education() {
           >
             Education
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-slate-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -153,33 +150,33 @@ export function Education() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="relative"
             >
-              {/* Timeline line with gradient animation */}
-              <motion.div 
-                className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"
+              {/* Timeline line */}
+              <motion.div
+                className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/60 via-violet-500/40 to-transparent"
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 style={{ transformOrigin: "top" }}
               />
-              
+
               <div className="relative pl-20 pb-12">
                 {/* Timeline dot with pulse animation */}
                 <motion.div
-                  className="absolute left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+                  className="absolute left-3.5 top-1 w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 ring-4 ring-slate-950"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: 0.4,
                     type: "spring",
                     stiffness: 200
                   }}
-                  whileHover={{ scale: 1.5 }}
+                  whileHover={{ scale: 1.3 }}
                 >
-                  <motion.div 
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-75"
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 opacity-75"
                     animate={{
                       scale: [1, 1.5, 1],
                       opacity: [0.75, 0, 0.75],
@@ -193,20 +190,15 @@ export function Education() {
                 </motion.div>
 
                 <motion.div
-                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 hover:border-purple-500/50 transition-all group relative overflow-hidden"
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-8 hover:border-white/15 transition-all group relative overflow-hidden"
+                  whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  {/* Animated gradient overlay on hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity"
-                  />
-
                   <div className="flex items-start gap-4 mb-4">
-                    <motion.div 
-                      className="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 relative z-10"
-                      whileHover={{ 
-                        scale: 1.15,
+                    <motion.div
+                      className="w-13 h-13 rounded-xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg shadow-black/20"
+                      whileHover={{
+                        scale: 1.1,
                         transition: { duration: 0.3, type: "spring", stiffness: 300 }
                       }}
                       initial={{ scale: 0, rotate: -180 }}
@@ -219,11 +211,11 @@ export function Education() {
                         stiffness: 200
                       }}
                     >
-                      <GraduationCap className="text-white" size={28} />
+                      <GraduationCap className="text-white" size={24} />
                     </motion.div>
                     <div className="flex-1 relative z-10">
-                      <motion.h3 
-                        className="text-2xl text-white mb-2"
+                      <motion.h3
+                        className="text-xl md:text-2xl text-white mb-2"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -231,8 +223,8 @@ export function Education() {
                       >
                         {edu.degree}
                       </motion.h3>
-                      <motion.p 
-                        className="text-lg text-purple-400 mb-2"
+                      <motion.p
+                        className="text-base md:text-lg text-blue-300 mb-2"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}

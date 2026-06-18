@@ -77,13 +77,11 @@ const item = {
 export function Skills() {
   return (
     <section id="skills" className="py-24 bg-slate-900 relative overflow-hidden">
-      {/* Animated background */}
+      {/* Ambient background */}
       <motion.div
-        className="absolute top-40 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute top-40 left-10 w-72 h-72 bg-blue-500/[0.06] rounded-full blur-[100px]"
         animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 50, 0],
-          y: [0, 30, 0],
+          scale: [1, 1.2, 1],
         }}
         transition={{
           duration: 10,
@@ -92,11 +90,9 @@ export function Skills() {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/[0.06] rounded-full blur-[110px]"
         animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, -30, 0],
-          y: [0, -50, 0],
+          scale: [1.15, 1, 1.15],
         }}
         transition={{
           duration: 12,
@@ -113,8 +109,9 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          <span className="inline-block text-xs tracking-widest text-blue-400/80 uppercase mb-3">What I work with</span>
+          <motion.h2
+            className="text-4xl md:text-5xl mb-4 text-white tracking-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -122,7 +119,7 @@ export function Skills() {
           >
             Skills & Technologies
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-slate-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,33 +143,33 @@ export function Skills() {
               variants={item}
               whileHover={{ y: -12, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-purple-500/50 transition-all group relative overflow-hidden"
+              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl p-6 hover:border-white/15 hover:bg-white/[0.05] transition-all group relative overflow-hidden"
             >
               {/* Animated background gradient on hover */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity`}
+                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-[0.06] transition-opacity`}
                 initial={{ scale: 0, rotate: 0 }}
                 whileHover={{ scale: 1.5, rotate: 180 }}
                 transition={{ duration: 0.8 }}
               />
 
-              <motion.div 
-                className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center mb-4 relative z-10`}
-                whileHover={{ 
-                  scale: 1.2,
+              <motion.div
+                className={`w-11 h-11 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-black/20`}
+                whileHover={{
+                  scale: 1.15,
                   transition: { duration: 0.3, type: "spring", stiffness: 300 }
                 }}
               >
-                <category.icon className="text-white" size={24} />
+                <category.icon className="text-white" size={22} />
               </motion.div>
-              
-              <h3 className="text-xl mb-4 text-white relative z-10">{category.title}</h3>
-              
+
+              <h3 className="text-lg mb-4 text-white relative z-10">{category.title}</h3>
+
               <div className="flex flex-wrap gap-2 relative z-10">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.span
                     key={skill}
-                    className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition-colors cursor-default"
+                    className="px-3 py-1 bg-white/[0.04] border border-white/[0.06] text-slate-300 rounded-full text-sm hover:bg-white/[0.08] transition-colors cursor-default"
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}

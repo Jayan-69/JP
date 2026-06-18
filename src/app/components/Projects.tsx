@@ -95,13 +95,11 @@ const item = {
 export function Projects() {
   return (
     <section id="projects" className="py-24 bg-slate-900 relative overflow-hidden">
-      {/* Animated background particles */}
+      {/* Ambient background */}
       <motion.div
-        className="absolute top-20 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute top-20 left-1/4 w-64 h-64 bg-blue-500/[0.05] rounded-full blur-[100px]"
         animate={{
-          x: [0, 100, 0],
-          y: [0, 50, 0],
-          scale: [1, 1.2, 1],
+          scale: [1, 1.15, 1],
         }}
         transition={{
           duration: 15,
@@ -110,11 +108,9 @@ export function Projects() {
         }}
       />
       <motion.div
-        className="absolute bottom-40 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"
+        className="absolute bottom-40 right-1/4 w-80 h-80 bg-violet-500/[0.05] rounded-full blur-[110px]"
         animate={{
-          x: [0, -80, 0],
-          y: [0, -60, 0],
-          scale: [1.2, 1, 1.2],
+          scale: [1.15, 1, 1.15],
         }}
         transition={{
           duration: 18,
@@ -131,8 +127,9 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          <span className="inline-block text-xs tracking-widest text-blue-400/80 uppercase mb-3">Portfolio</span>
+          <motion.h2
+            className="text-4xl md:text-5xl mb-4 text-white tracking-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -140,7 +137,7 @@ export function Projects() {
           >
             Featured Projects
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-slate-400 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -162,38 +159,38 @@ export function Projects() {
             <motion.div
               key={project.title}
               variants={item}
-              whileHover={{ y: -15, scale: 1.03 }}
+              whileHover={{ y: -10 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden hover:border-purple-500/50 transition-all group relative"
+              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl overflow-hidden hover:border-white/15 transition-all group relative"
             >
-              {/* Animated gradient bar */}
-              <motion.div 
-                className={`h-2 bg-gradient-to-r ${project.gradient}`}
+              {/* Gradient bar */}
+              <motion.div
+                className={`h-1 bg-gradient-to-r ${project.gradient}`}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               />
-              
-              {/* Animated background on hover */}
+
+              {/* Background tint on hover */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none`}
+                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-[0.04] transition-opacity pointer-events-none`}
               />
 
               <div className="p-6 relative">
-                <motion.div 
-                  className={`w-14 h-14 rounded-lg bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4`}
-                  whileHover={{ 
-                    scale: 1.2, 
-                    rotate: 360,
-                    transition: { duration: 0.6 }
+                <motion.div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4 shadow-lg shadow-black/20`}
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: 8,
+                    transition: { duration: 0.4 }
                   }}
                 >
-                  <project.icon className="text-white" size={28} />
+                  <project.icon className="text-white" size={22} />
                 </motion.div>
 
-                <motion.h3 
-                  className="text-xl text-white mb-3"
+                <motion.h3
+                  className="text-lg text-white mb-3"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -201,8 +198,8 @@ export function Projects() {
                 >
                   {project.title}
                 </motion.h3>
-                
-                <motion.p 
+
+                <motion.p
                   className="text-slate-400 mb-4 leading-relaxed text-sm"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -216,7 +213,7 @@ export function Projects() {
                   {project.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tag}
-                      className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-xs hover:bg-slate-700 transition-colors"
+                      className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] text-slate-300 rounded-full text-xs hover:bg-white/[0.08] transition-colors"
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -238,28 +235,21 @@ export function Projects() {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.08, x: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-full text-sm shadow-md shadow-black/20 hover:shadow-lg transition-shadow"
                   >
                     <Github size={16} />
                     Code
                   </motion.a>
-                  <motion.button
-                    whileHover={{ scale: 1.08, x: 2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all text-sm relative overflow-hidden group"
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 px-4 py-2 border border-white/10 text-slate-500 rounded-full text-sm cursor-not-allowed"
                     disabled
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.6 }}
-                    />
-                    <ExternalLink size={16} className="relative z-10" />
-                    <span className="relative z-10">Demo</span>
-                  </motion.button>
+                    <ExternalLink size={16} />
+                    Demo
+                  </button>
                 </div>
               </div>
             </motion.div>

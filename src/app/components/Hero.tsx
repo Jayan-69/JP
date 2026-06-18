@@ -14,48 +14,47 @@ const socialLinks = [
 
 export function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Animated background elements */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#05070d]">
+      {/* Subtle grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
+
+      {/* Ambient background glow */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-16 left-12 w-[28rem] h-[28rem] bg-blue-500/[0.08] rounded-full blur-[100px]"
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.15, 1],
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{
-            duration: 8,
+            duration: 9,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-[32rem] h-[32rem] bg-violet-500/[0.08] rounded-full blur-[110px]"
           animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
+            scale: [1.1, 1, 1.1],
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-            x: [-50, 50, -50],
-            y: [-50, 50, -50],
-          }}
-          transition={{
-            duration: 10,
+            duration: 9,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
       </div>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-5xl mx-auto">
@@ -69,54 +68,55 @@ export function Hero() {
             >
               <motion.div
                 className="relative"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {/* Animated border rings */}
-                <motion.div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-75"
-                  animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                  style={{ padding: "4px" }}
-                />
-                <motion.div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-50 blur-xl"
-                  animate={{
-                    rotate: -360,
-                    scale: [1.2, 1, 1.2],
-                  }}
-                  transition={{
-                    rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                />
-                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-800">
+                {/* Soft glow */}
+                <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-blue-500/30 via-violet-500/20 to-transparent blur-2xl" />
+
+                <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden ring-1 ring-white/10 border border-white/5 shadow-[0_0_60px_-15px_rgba(99,102,241,0.5)]">
                   <img
                     src="./Assets/BU4A0371.jpg"
                     alt="Jayan Mihisara Perera"
                     className="w-full h-full object-cover"
                   />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
                 </div>
+
+                {/* Availability badge */}
+                <motion.div
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700 shadow-lg backdrop-blur-sm whitespace-nowrap"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-xs text-slate-300">Open to opportunities</span>
+                </motion.div>
               </motion.div>
             </motion.div>
 
             {/* Text Content */}
             <div className="flex-1 text-center md:text-left">
               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700 bg-slate-900/60 mb-6"
+              >
+                <span className="text-xs text-slate-400 tracking-wide">Full Stack Developer & Project Coordinator</span>
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <motion.h1
-                  className="text-4xl md:text-6xl lg:text-7xl mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                  className="text-4xl md:text-6xl lg:text-7xl tracking-tight mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -130,21 +130,18 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <p className="text-xl md:text-2xl text-slate-300 mb-3">
-                  Full Stack Developer
-                </p>
-                <p className="text-slate-400 text-lg mb-8">
-                  Software Engineer | Web, Mobile & Desktop Application Development
+                <p className="text-slate-400 text-base md:text-lg mb-8">
+                  Building scalable web, mobile & desktop applications
                 </p>
               </motion.div>
 
               <motion.p
-                className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0 mb-8 leading-relaxed"
+                className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0 mb-9 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
               >
-                Passionate about creating elegant solutions with modern technologies. 
+                Passionate about creating elegant solutions with modern technologies.
                 Specializing in full-stack development with expertise in web, mobile, and desktop applications.
               </motion.p>
 
@@ -156,17 +153,17 @@ export function Hero() {
               >
                 <motion.a
                   href="#contact"
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="px-7 py-3 bg-white text-slate-900 rounded-full shadow-lg shadow-black/20 hover:shadow-xl transition-shadow"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   Get In Touch
                 </motion.a>
                 <motion.a
                   href="#projects"
-                  className="px-8 py-3 border border-slate-600 text-slate-300 rounded-lg hover:border-purple-500 hover:text-purple-400 transition-all"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="px-7 py-3 border border-slate-700 text-slate-200 rounded-full hover:border-slate-500 hover:bg-slate-900/50 transition-colors"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   View Projects
                 </motion.a>

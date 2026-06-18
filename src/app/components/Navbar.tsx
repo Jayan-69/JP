@@ -28,9 +28,9 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-slate-950/95 backdrop-blur-lg border-b border-slate-800 shadow-lg shadow-purple-500/5" 
-          : "bg-slate-950/80 backdrop-blur-md border-b border-slate-800"
+        scrolled
+          ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -38,24 +38,14 @@ export function Navbar() {
           {/* Logo */}
           <motion.a
             href="#home"
-            className="text-xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent relative"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2.5"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              JMP
-            </motion.span>
-            {/* Animated underline */}
-            <motion.div
-              className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
-              initial={{ width: 0 }}
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.3 }}
-            />
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-sm text-white">
+              JP
+            </span>
+            <span className="text-sm text-slate-200 hidden sm:inline">Jayan Perera</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -81,20 +71,14 @@ export function Navbar() {
             ))}
             <motion.a
               href="#contact"
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all relative overflow-hidden group"
+              className="px-5 py-2 bg-white text-slate-900 text-sm rounded-full shadow-md shadow-black/20 hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.6 }}
-              />
-              <span className="relative z-10">Hire Me</span>
+              Hire Me
             </motion.a>
           </div>
 
@@ -120,9 +104,9 @@ export function Navbar() {
           initial={false}
           animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden"
+          className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-xl rounded-b-2xl"
         >
-          <div className="py-4 border-t border-slate-800">
+          <div className="py-4 border-t border-white/5">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -139,7 +123,7 @@ export function Navbar() {
             ))}
             <motion.a
               href="#contact"
-              className="block mt-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-center"
+              className="block mt-4 px-6 py-2.5 bg-white text-slate-900 rounded-full text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: navItems.length * 0.1 }}

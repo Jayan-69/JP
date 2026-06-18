@@ -1,28 +1,27 @@
 import React from 'react';
 import { motion } from "motion/react";
-import { Heart, Github, Linkedin, Mail, MessageCircle, Facebook, Instagram, Send } from "lucide-react";
+import { ArrowUp, Github, Linkedin, Mail, MessageCircle, Facebook, Instagram, Send } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-gray-400" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-blue-400" },
-  { icon: Mail, href: "mailto:jayan.perera@example.com", label: "Gmail", color: "hover:text-red-400" },
-  { icon: MessageCircle, href: "https://wa.me/1234567890", label: "WhatsApp", color: "hover:text-green-400" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook", color: "hover:text-blue-500" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "hover:text-pink-400" },
-  { icon: Send, href: "https://t.me", label: "Telegram", color: "hover:text-sky-400" },
+  { icon: Github, href: "https://github.com/Jayan-69", label: "GitHub", color: "hover:text-white" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/jayan-perera-1725a22b4/", label: "LinkedIn", color: "hover:text-blue-400" },
+  { icon: Mail, href: "mailto:jayanmihisara8@gmail.com", label: "Gmail", color: "hover:text-red-400" },
+  { icon: MessageCircle, href: "https://wa.me/+94754464724", label: "WhatsApp", color: "hover:text-green-400" },
+  { icon: Facebook, href: "https://web.facebook.com/mihisara.perera.5", label: "Facebook", color: "hover:text-blue-500" },
+  { icon: Instagram, href: "https://www.instagram.com/_jp__69_", label: "Instagram", color: "hover:text-pink-400" },
+  { icon: Send, href: "https://t.me/+94754464724", label: "Telegram", color: "hover:text-sky-400" },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 py-12 relative overflow-hidden">
-      {/* Animated background */}
+    <footer className="bg-slate-950 border-t border-white/[0.07] py-12 relative overflow-hidden">
+      {/* Ambient background */}
       <motion.div
-        className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/[0.04] rounded-full blur-[100px]"
         animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 50, 0],
+          scale: [1, 1.15, 1],
         }}
         transition={{
           duration: 10,
@@ -31,10 +30,9 @@ export function Footer() {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"
+        className="absolute bottom-0 right-1/4 w-64 h-64 bg-violet-500/[0.04] rounded-full blur-[100px]"
         animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, -50, 0],
+          scale: [1.15, 1, 1.15],
         }}
         transition={{
           duration: 12,
@@ -78,29 +76,17 @@ export function Footer() {
         </motion.div>
 
         {/* Footer Text */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-800">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.07]">
           <motion.p
-            className="text-slate-400 text-sm flex items-center gap-2"
+            className="text-slate-400 text-sm"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Made {""}
-            <motion.span
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-            </motion.span>{" "}
-            by Jayan Mihisara Perera
+            Designed & built by Jayan Mihisara Perera
           </motion.p>
-          
+
           <motion.p
             className="text-slate-400 text-sm"
             initial={{ opacity: 0, x: 20 }}
@@ -122,15 +108,10 @@ export function Footer() {
         >
           <motion.a
             href="#home"
-            className="text-slate-500 hover:text-purple-400 transition-colors text-sm flex items-center gap-2"
+            className="text-slate-500 hover:text-blue-400 transition-colors text-sm flex items-center gap-2"
             whileHover={{ y: -3 }}
           >
-            <motion.span
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              ↑
-            </motion.span>
+            <ArrowUp size={14} />
             Back to Top
           </motion.a>
         </motion.div>
