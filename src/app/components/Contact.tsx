@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from "motion/react";
 import { Mail, MapPin, Send, Github, Linkedin, MessageCircle, Facebook, Instagram } from "lucide-react";
-import { useState, useEffect } from "react";
-import * as emailjs from '@emailjs/browser';
+import { useState } from "react";
 
 const socialMediaLinks = [
   { 
@@ -64,67 +63,27 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("");
-  const [emailjsReady, setEmailjsReady] = useState(false);
-
-  // Initialize EmailJS when component mounts
-  useEffect(() => {
-    try {
-      emailjs.init("rhYRYLZ4sg7XgMG2m");
-      console.log("EmailJS initialized successfully");
-      setEmailjsReady(true);
-    } catch (error) {
-      console.error("EmailJS initialization failed:", error);
-      setEmailjsReady(false);
-    }
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!emailjsReady) {
-      setSubmitStatus("error");
-      console.error("EmailJS not ready");
-      return;
-    }
-    
+
     setIsSubmitting(true);
     setSubmitStatus("");
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-      to_email: "jayanmihisara8@gmail.com"
-    };
-
     try {
-      console.log("Attempting to send email...");
-      console.log("Template params:", templateParams);
-      
-      // Try multiple service ID variations
-      const serviceIds = ["service_gver5rg"]; // Your new service ID
-      let emailSent = false;
-      
-      for (const serviceId of serviceIds) {
-        try {
-          console.log(`Trying service ID: ${serviceId}`);
-          const response = await emailjs.send(serviceId, "template_bs7zmz8", templateParams);
-          console.log(`Success with ${serviceId}:`, response);
-          emailSent = true;
-          break;
-        } catch (serviceError: any) {
-          console.log(`Failed with ${serviceId}:`, serviceError);
-          continue;
-        }
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
       }
-      
-      if (emailSent) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        throw new Error("All service IDs failed");
-      }
-    } catch (error: any) {
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
       console.error("Email sending failed:", error);
       setSubmitStatus("error");
     } finally {

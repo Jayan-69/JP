@@ -1,43 +1,61 @@
 import React from 'react';
 import { motion } from "motion/react";
-import { Code2, Smartphone, Monitor, Database, Server, Layers } from "lucide-react";
+import { Code2, Smartphone, Database, Server, Layers, Search, Wrench, Users, Sparkles } from "lucide-react";
 
 const skillCategories = [
   {
+    icon: Layers,
+    title: "Languages",
+    skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "PHP", "Dart"],
+    gradient: "from-pink-500 to-rose-500"
+  },
+  {
     icon: Code2,
-    title: "Web Development",
-    skills: ["React", "HTML", "CSS", "JavaScript", "Node.js", "Express.js"],
+    title: "Frontend",
+    skills: ["React.js", "Next.js", "HTML5", "CSS3", "Redux Toolkit", "Vite"],
     gradient: "from-blue-500 to-cyan-500"
   },
   {
     icon: Smartphone,
     title: "Mobile Development",
-    skills: ["React Native", "Flutter", "Dart"],
+    skills: ["React Native", "Flutter"],
     gradient: "from-purple-500 to-pink-500"
-  },
-  {
-    icon: Monitor,
-    title: "Desktop Development",
-    skills: ["C#", "Java", "Python"],
-    gradient: "from-green-500 to-emerald-500"
-  },
-  {
-    icon: Database,
-    title: "Database",
-    skills: ["MongoDB", "SQL", "MySQL"],
-    gradient: "from-orange-500 to-red-500"
   },
   {
     icon: Server,
     title: "Backend",
-    skills: ["Node.js", "Express.js", "PHP"],
+    skills: ["Node.js", "Express.js", "RESTful API Design"],
     gradient: "from-indigo-500 to-purple-500"
   },
   {
-    icon: Layers,
-    title: "Languages",
-    skills: ["JavaScript", "Python", "Java", "C#", "Dart", "PHP"],
-    gradient: "from-pink-500 to-rose-500"
+    icon: Database,
+    title: "Databases",
+    skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase"],
+    gradient: "from-orange-500 to-red-500"
+  },
+  {
+    icon: Search,
+    title: "SEO & Analytics",
+    skills: ["On-Page SEO", "Technical SEO", "Google Search Console", "Codebase SEO Optimisation"],
+    gradient: "from-teal-500 to-green-500"
+  },
+  {
+    icon: Wrench,
+    title: "Tools & DevOps",
+    skills: ["Git", "Docker", "Postman", "CI/CD Pipelines"],
+    gradient: "from-amber-500 to-orange-500"
+  },
+  {
+    icon: Users,
+    title: "Methodologies",
+    skills: ["Agile (Scrum)", "Sprint Planning", "Backlog Grooming"],
+    gradient: "from-violet-500 to-fuchsia-500"
+  },
+  {
+    icon: Sparkles,
+    title: "Other",
+    skills: ["API Integration", "Debugging", "Full-Stack Architecture", "Client Communication"],
+    gradient: "from-cyan-500 to-blue-500"
   }
 ];
 
