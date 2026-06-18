@@ -48,6 +48,35 @@ export default async function handler(req: any, res: any) {
       return;
     }
 
+    const autoReplyResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': apiKey,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: { name: 'Jayan Mihisara Perera', email: toEmail },
+        to: [{ email, name }],
+        subject: `Thank you for reaching out, ${name}!`,
+        htmlContent: `
+          <p>Hi ${escapeHtml(name)},</p>
+          <p>Thank you for getting in touch through my portfolio website. I've received your message and truly appreciate you taking the time to reach out.</p>
+          <p>I'll review your message and get back to you within <strong>24 hours</strong>.</p>
+          <p>In the meantime, feel free to connect with me on
+            <a href="https://www.linkedin.com/in/jayan-perera-1725a22b4/">LinkedIn</a> or
+            <a href="https://github.com/Jayan-69">GitHub</a>.
+          </p>
+          <p>Best regards,<br/>Jayan Mihisara Perera<br/>Full Stack Developer</p>
+        `,
+      }),
+    });
+
+    if (!autoReplyResponse.ok) {
+      const errorBody = await autoReplyResponse.text();
+      console.error('Brevo auto-reply error:', autoReplyResponse.status, errorBody);
+    }
+
     res.status(200).json({ success: true });
   } catch (error) {
     console.error('Contact form error:', error);
